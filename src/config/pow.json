@@ -1,46 +1,85 @@
 {
-  "104734457": {
-    "developer": {
-      "address": "0x18B2BF317ED21dE2A24F7176204463867Df598d9",
-      "fnHash": "0x0c11dedd"
+  "testnet": [
+    {
+        "chainId": "104734457",
+        "name": "Calypso",
+        "rpc": "https://staging-v2.skalenodes.com/v1/actual-secret-cebalrai",
+        "developer": {
+            "address": "0x6A15024cd025066700d27190dD5F2F220c4d3824",
+            "fnHash": "0x0c11dedd"
+        },
+        "public": {
+            "address": "0x6A15024cd025066700d27190dD5F2F220c4d3824",
+            "fnHash": "0x0c11dedd",
+            "maxFuel": "0.005"
+        }
     },
-    "public": {
-      "address": "0x6A15024cd025066700d27190dD5F2F220c4d3824",
-      "fnHash": "0x0c11dedd"
+    {
+        "chainId": "",
+        "name": "Whispering-Turais",
+        "rpc": "https://staging-v2.skalenodes.com/v1/whispering-turais",
+        "public": {
+            "address": "0xb2241D4E1aBABbeD041f99A2a0aCea972015Cd2f",
+            "fnHash": "0x0c11dedd",
+            "maxFuel": "0.005"
+        }
     }
-  },
-  "1564830818": {
-    "developer": {
-      "address": "0x000E9c53C4e2e21F5063f2e232d0AA907318dccb",
-      "fnHash": "0x0c11dedd"
+  ],
+  "mainnet": [
+    {
+        "chainId": "1564830818",
+        "name": "Calypso",
+        "rpc": "https://honorable-steel-rasalhague.mainnet.skalenodes.com",
+        "developer": {
+                "address": "0x000E9c53C4e2e21F5063f2e232d0AA907318dccb",
+                "fnHash": "0x0c11dedd"
+        },
+        "public": {
+            "address": "0x02891b34B7911A9C68e82C193cd7A6fBf0c3b30A",
+            "fnHash": "0x0c11dedd",
+            "maxFuel": "0.005"
+
+         }
     },
-    "public": {
-      "address": "0x02891b34B7911A9C68e82C193cd7A6fBf0c3b30A",
-      "fnHash": "0x0c11dedd"
+    {
+        "chainId": "1026062157",
+        "name": "CryptoBlades",
+        "rpc": "https://mainnet.skalenodes.com/v1/affectionate-immediate-pollux",
+        "public": {
+            "address": "0xFcE116dB669A22CF811D86F0591F8AeCA68abB01",
+            "fnHash": "0x0c11dedd",
+            "maxFuel": "0.005"
+        }
+    },
+    {
+        "chainId": "2046399126",
+        "name": "Europa",
+        "rpc": "https://mainnet.skalenodes.com/v1/elated-tan-skat",
+        "public": {
+            "address": "0x2B267A3e49b351DEdac892400a530ABb2f899d23",
+            "fnHash": "0x6a6278420",
+            "maxFuel": "0.1"
+        }
+    },
+    {
+        "chainId": "278611351",
+        "name": "Razor",
+        "rpc": "https://mainnet.skalenodes.com/v1/turbulent-unique-scheat",
+        "public": {
+            "address": "0xCf616Cc9C2bC15A35324B2634B6dBaF585e5D8E4",
+            "fnHash": "0x0c11dedd",
+            "maxFuel": "0.005"
+        }
+    },
+    {
+        "chainId": "1350216234",
+        "name": "SKALE",
+        "rpc": "https://mainnet.skalenodes.com/v1/parallel-stormy-spica",
+        "public": {
+            "address": "0xa5C297dF8f8386E4b940D61EF9A8f2bB367a6fAB",
+            "fnHash": "0x0c11dedd",
+            "maxFuel": "0.005"
+        }
     }
-  },
-  "1026062157": {
-    "public": {
-      "address": "0xFcE116dB669A22CF811D86F0591F8AeCA68abB01",
-      "fnHash": "0x0c11dedd"
-    }
-  },
-  "2046399126": {
-    "public": {
-      "address": "0x2B267A3e49b351DEdac892400a530ABb2f899d23",
-      "fnHash": "0x6a6278420"
-    }
-  },
-  "28611351": {
-    "public": {
-      "address": "0xCf616Cc9C2bC15A35324B2634B6dBaF585e5D8E4",
-      "fnHash": "0x0c11dedd"
-    }
-  },
-  "1350216234": {
-    "public": {
-      "address": "0xa5C297dF8f8386E4b940D61EF9A8f2bB367a6fAB",
-      "fnHash": "0x0c11dedd"
-    }
-  }
+  ]
 }
