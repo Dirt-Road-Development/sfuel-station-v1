@@ -46,12 +46,13 @@ export const VisualToggle = styled.div`
 `;
 
 export const AddressInput = styled.input({
-    width: '75%',
+    width: '95%',
     height: '100%',
     padding: '0px 8px',
     background: 'none',
     border: '1px solid var(--accent-color)',
-    color: 'var(--text-color)'
+    color: 'var(--text-color)',
+    fontSize: '1.25em'
 });
 
 export const FillAllButton = styled.div({
@@ -64,7 +65,8 @@ export const FillAllButton = styled.div({
     fontWeight: '700',
     display: 'flex',
     alignItems: 'center',
-    justifyContent: 'center'
+    justifyContent: 'center',
+    cursor: 'pointer'
 });
 
 export const FillRow = styled.div({
@@ -102,5 +104,9 @@ export const ChainStatus = styled.a<CSParams>`
     &:hover {
         color: var(--text-color);
     }
+`;
+
+export const Message = styled.p<{ color?: string }>`
+    color: ${props => props.color ?? 'var(--text-color)'};
 `;
 
