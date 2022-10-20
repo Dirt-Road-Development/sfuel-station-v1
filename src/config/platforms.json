@@ -1,0 +1,34 @@
+{
+    "chains": [
+        {
+            "name": "Calypso NFT Hub",
+            "url": "https://calypshub.network",
+            "dark": "#DD1173",
+            "light": "#350E47"
+        },
+        {
+            "name": "CryptoBlades",
+            "url": "https://cryptoblades.io",
+            "light": "navy",
+            "dark": "#EDCD90"
+        },
+        {
+            "name": "Europa Hub",
+            "url": "https://ruby.exchange",
+            "dark": "#EA3B4D",
+            "light": "#000e1d"
+        },
+        {
+            "name": "Razor Network",
+            "url": "https://razor.network",
+            "light": "#171AA5",
+            "dark": "#f8f9fa"
+        },
+        {
+            "name": "SKALE Community Chain",
+            "url": "https://skale.space",
+            "light": "#070766",
+            "dark": "#00BAFF"
+        }
+    ]
+}

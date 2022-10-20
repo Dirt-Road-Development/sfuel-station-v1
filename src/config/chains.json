@@ -1,0 +1,48 @@
+{
+  "staging": {
+    "1258188407": {
+      "urls": ["https://staging-v2.skalenodes.com/v1/naive-musty-merope"],
+      "name": "Naive Musty Merope",
+      "nativeCurrency": "SFUEL",
+      "blockExplorerUrls": ["https://naive-musty-merope.explorer.staging-v2.skalenodes.com"]
+    },
+    "104734457": {
+      "urls": ["https://staging-v2.skalenodes.com/v1/actual-secret-cebalrai"],
+      "name": "Calypso Testnet",
+      "nativeCurrency": "SFUEL",
+      "blockExplorerUrls": ["https://actual-secret-cebalrai.explorer.staging-v2.skalenodes.com"]
+    }
+  },
+  "mainnet": {
+    "1564830818": {
+      "urls": ["https://mainnet.skalenodes.com/v1/honorable-steel-rasalhague"],
+      "name": "Calypso NFT Hub",
+      "nativeCurrency": "SFUEL",
+      "blockExplorerUrls": ["https://honorable-steel-rasalhague.explorer.mainnet.skalenodes.com"]
+    },
+    "1026062157": {
+      "urls": ["https://mainnet.skalenodes.com/v1/affectionate-immediate-pollux"],
+      "name": "CryptoBlades",
+      "nativeCurrency": "SFUEL",
+      "blockExplorerUrls": ["https://affectionate-immediate-pollux.explorer.mainnet.skalenodes.com"]
+    },
+    "2046399126": {
+      "urls": ["https://mainnet.skalenodes.com/v1/elated-tan-skat"],
+      "name": "Europa Hub",
+      "nativeCurrency": "SFUEL",
+      "blockExplorerUrls": ["https://elated-tan-skat.explorer.mainnet.skalenodes.com"]
+    },
+    "278611351": {
+      "urls": ["https://mainnet.skalenodes.com/v1/turbulent-unique-scheat"],
+      "name": "Razor Network",
+      "nativeCurrency": "SFUEL",
+      "blockExplorerUrls": ["https://turbulent-unique-scheat.explorer.mainnet.skalenodes.com"]
+    },
+    "1350216234": {
+      "urls": ["https://mainnet.skalenodes.com/v1/parallel-stormy-spica"],
+      "name": "SKALE Community Chain",
+      "nativeCurrency": "SFUEL",
+      "blockExplorerUrls": ["https://parallel-stormy-spica.explorer.mainnet.skalenodes.com/"]
+    }
+  }
+}
