@@ -2,10 +2,9 @@ import * as Component from './styles';
 import ChainsWeb3 from '../../config/chains.json';
 import { createRef, MutableRefObject, useContext, useEffect } from 'react';
 import { useAccount } from 'wagmi';
-// import { ThemeContext } from '../../context/ThemeContext';
 import { BalanceContext } from '../../context/BalanceContext';
 import { BigNumber, ethers } from 'ethers';
-
+import { userProofOfWork } from '../../utils/pow';
 
 interface IChain {
     isLoading: boolean;
@@ -73,6 +72,23 @@ export default function FillUp() {
 
         getBalances();
     }, [address]);
+    
+    const fillUp = async() => {
+
+        try {
+
+            if (!address) {
+                throw new Error("Please connect a wallet");
+            }
+
+            const res = await userProofOfWork({
+                account: address,
+                isMainnet: true
+            });
+        } catch (err) {
+            console.log("Error: ", err);
+        }
+    }
 
     /**
      *
@@ -90,7 +106,10 @@ export default function FillUp() {
                 <span style={{ height: '15px' }} />
                 <Component.FillRow> 
                     <Component.AddressInput type="text" defaultValue={address} ref={addressRef} />
-                    <Component.FillAllButton><strong>FUEL Wallet</strong></Component.FillAllButton>
+                    <Component.FillAllButton onClick={async (e) => {
+                        e.preventDefault();
+                        await fillUp();
+                    }}><strong>FUEL Wallet</strong></Component.FillAllButton>
                 </Component.FillRow>
             </Component.Centered>
             <Component.ChainStatusList>
