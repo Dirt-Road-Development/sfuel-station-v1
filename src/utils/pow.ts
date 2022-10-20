@@ -23,7 +23,7 @@ export const userProofOfWork = async (params: Params ) : Promise<any> => {
     const randomSignerAddress = randomSignerWallet.address;
 
     let nonce = new BN(0);
-    let gas = new BN(50000);
+    let gas = new BN(100000);
 
     const gasPrice: string = await mineGasForTransaction(web3, nonce, gas, randomSignerAddress);
     
@@ -52,17 +52,25 @@ export const userProofOfWork = async (params: Params ) : Promise<any> => {
                     gas: gas.toNumber(),
                     gasPrice
                 }, randomSignerPrivatekey),
-                w3: config.web3
+                w3: config.web3,
+                chain: config.chain.name
             }
 
     }));
-
+    
     const fillUps = await Promise.all(transactions.map(async(tx) => {
         if (!tx.signedTx.rawTransaction) return "Error: Raw Transaction Does Not Exist";
         try {
-            return await tx.w3.eth.sendSignedTransaction(tx.signedTx.rawTransaction);
+            await tx.w3.eth.sendSignedTransaction(tx.signedTx.rawTransaction);
+            return {
+                name: tx.chain,
+                action: 0
+            };
         } catch (err) {
-            return err;
+            return {
+                name: tx.chain,
+                action: 1
+            };
         }
     }));
     

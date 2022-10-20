@@ -1,10 +1,12 @@
 import * as Component from './styles';
 import ChainsWeb3 from '../../config/chains.json';
-import { createRef, MutableRefObject, useContext, useEffect } from 'react';
+import { createRef, MutableRefObject, useContext, useEffect, useState } from 'react';
 import { useAccount } from 'wagmi';
 import { BalanceContext } from '../../context/BalanceContext';
 import { BigNumber, ethers } from 'ethers';
 import { userProofOfWork } from '../../utils/pow';
+import useMessage from '../../hooks/message';
+import LoadingIcon from '../LoadingIcon';
 
 interface IChain {
     isLoading: boolean;
@@ -32,8 +34,6 @@ Object.entries(ChainsWeb3.mainnet).forEach((v) => {
 
 export default function FillUp() {
     
-    // const [chainList, setChainList] = useState<ChainList>(DEFAULT_CHAINS);
-    // const { isDarkTheme } = useContext(ThemeContext);
     const { chains, setBalance } = useContext(BalanceContext);
 
     /**
@@ -43,11 +43,11 @@ export default function FillUp() {
      *
     **/
     const { address }  = useAccount();
-    
-    const addressRef = createRef<HTMLInputElement>() as MutableRefObject<HTMLInputElement>;
+    const [ message, setMessage ] = useMessage(); 
+    const [ account, setAccount ] = useState<string | undefined>(address);
+    const [ fillStatus, setFillStatus ] = useState<string>("unfilled");
 
     useEffect(() => {
-
         const getBalances = async() => {
             let _chains = (chains) as any;
             const balances = await Promise.all(Object.entries(_chains['current']).map(async(v) => {
@@ -70,23 +70,62 @@ export default function FillUp() {
             })
         }
 
+        const isValidAddress = () => {
+            if (!account) {
+                setMessage({
+                    message: "Invalid Address",
+                    color: "red"
+                });
+            } else if (!ethers.utils.isAddress(account)) {
+                setMessage({
+                    message: "Invalid Address",
+                    color: "red"
+                });
+            }
+            if (message) setTimeout(() => setMessage(undefined), 1500);
+        }
+        isValidAddress();
         getBalances();
-    }, [address]);
+    }, [account]);
     
     const fillUp = async() => {
-
+        setFillStatus("filling");
         try {
 
-            if (!address) {
+            if (!address || !account) {
                 throw new Error("Please connect a wallet");
             }
 
+            if (!ethers.utils.isAddress(account)) {
+                throw new Error("Invalid Ethereum Address");
+            }
+
             const res = await userProofOfWork({
-                account: address,
+                account: account,
                 isMainnet: true
             });
-        } catch (err) {
-            console.log("Error: ", err);
+
+            let successScript = "";
+
+            res.forEach((v: any) => {
+                if (v['action'] === 0) {
+                    successScript += v['name'] + ", ";
+                }
+            });
+            
+            setMessage({
+                message: "Wallet Filled Up On: " + successScript.substring(0, successScript.length-2),
+                color: 'green'
+            });
+            setFillStatus("filled");
+
+        } catch (err: any) {
+            setMessage({
+                message: err.toString(),
+                color: "red"
+            });
+            setTimeout(() => setMessage(undefined), 1500);
+            setFillStatus("unfilled");
         }
     }
 
@@ -104,21 +143,41 @@ export default function FillUp() {
                 <Component.Title>Ready to <strong>FUEL</strong> Up?</Component.Title>
                 <Component.Slogan>Click Fuel Wallet to automatically fill up across all supported SKALE Chains. Want to fill up a different address? Copy and paste it in</Component.Slogan>
                 <span style={{ height: '15px' }} />
-                <Component.FillRow> 
-                    <Component.AddressInput type="text" defaultValue={address} ref={addressRef} />
+                <Component.FillRow>
+                    <Component.AddressInput type="text" value={account} onChange={(e) => {
+                        e.preventDefault();
+                        setAccount(e.target.value);
+                    }} />
                     <Component.FillAllButton onClick={async (e) => {
                         e.preventDefault();
+                        if (fillStatus !== "unfilled") return;
                         await fillUp();
-                    }}><strong>FUEL Wallet</strong></Component.FillAllButton>
+                    }}><FillStatus status={fillStatus} /></Component.FillAllButton>
                 </Component.FillRow>
+                {message && (<Component.FillRow>
+                    <Component.Message color={message.color}>{message.message}</Component.Message>
+                </Component.FillRow>)}
             </Component.Centered>
             <Component.ChainStatusList>
                 {Object.entries(ChainsWeb3.mainnet).map((v: any, index: number) => {
-                    // const balance = (chains as any).current[v[0]];
                     let textColor = 'var(--text-color)';
                     return <Component.ChainStatus key={index} color={textColor}>{v[1].name}</Component.ChainStatus>
                 })} 
             </Component.ChainStatusList>
         </Component.Container>
     );
+}
+
+const FillStatus = ({ status }: { status: string }) => {
+    
+    if (status === "filled") {
+        return <strong>Fueled Up</strong>;
+    } else if (status === "unfilled") {
+        return <strong>Fuel Wallet</strong>;
+    } else if (status === "filling") {
+        return <LoadingIcon />;
+    } else {
+        return <strong>Error</strong>;
+    }
+
 }
