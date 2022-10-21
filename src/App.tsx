@@ -4,6 +4,8 @@ import { chain, configureChains, createClient, WagmiConfig } from 'wagmi';
 import { darkTheme, getDefaultWallets, RainbowKitProvider } from '@rainbow-me/rainbowkit';
 import { publicProvider } from 'wagmi/providers/public';
 import Station from './Station';
+import FuelCookieConsent from './components/CookieConsent';
+import {initGoogleAnalytics} from './utils/analytics';
 
 const { chains, provider } = configureChains(
     [chain.mainnet],
@@ -39,6 +41,7 @@ function App() {
       >
             <main>
                 <Components.Navigation />
+                    <FuelCookieConsent initGA={initGoogleAnalytics} />
                     <Station />
                 <Components.Footer/>
             </main>

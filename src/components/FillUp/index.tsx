@@ -7,6 +7,7 @@ import { BigNumber, ethers } from 'ethers';
 import { userProofOfWork } from '../../utils/pow';
 import useMessage from '../../hooks/message';
 import LoadingIcon from '../LoadingIcon';
+import {changeAddress, fillUpChains} from '../../utils/analytics';
 
 interface IChain {
     isLoading: boolean;
@@ -81,8 +82,10 @@ export default function FillUp() {
                     message: "Invalid Address",
                     color: "red"
                 });
+            } else {
+                if (message) setTimeout(() => setMessage(undefined), 1500);
+                changeAddress("Ethereum Address", [account]);
             }
-            if (message) setTimeout(() => setMessage(undefined), 1500);
         }
         isValidAddress();
         getBalances();
@@ -117,6 +120,7 @@ export default function FillUp() {
                 message: "Wallet Filled Up On: " + successScript.substring(0, successScript.length-2),
                 color: 'green'
             });
+            fillUpChains(`Address: ${account}`, successScript.substring(0, successScript.length -2).split(','));
             setFillStatus("filled");
 
         } catch (err: any) {

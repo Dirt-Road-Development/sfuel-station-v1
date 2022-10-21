@@ -3,6 +3,7 @@ import { useAccount } from 'wagmi';
 import Components from './components';
 import Landing from './components/Landing';
 import Layout from './components/Layout';
+import { connectWallet, disconnectWallet } from './utils/analytics';
 
 const Container = styled.div`
     position: absolute;
@@ -21,7 +22,17 @@ const Container = styled.div`
 `;
 
 export default function Station() {
-    const { address, isConnected } = useAccount();
+    const { address, isConnected, isConnecting, isDisconnected, connector } = useAccount();
+   
+    const _name: string | undefined = connector?.name;
+
+    if (isConnecting) {
+        connectWallet(_name ?? "No Connector Label", [address ?? "No Address"]);
+    }
+    
+    if (isDisconnected) {
+        disconnectWallet(_name  ?? "No Connector Label", [address ?? "No Address"]);
+    }
 
     if (isConnected) {
         return (
