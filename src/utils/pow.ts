@@ -27,7 +27,7 @@ export const userProofOfWork = async (params: Params ) : Promise<any> => {
 
     const gasPrice: string = await mineGasForTransaction(web3, nonce, gas, randomSignerAddress);
     
-    const chains = PowChains.testnet;
+    const chains = PowChains[params.isMainnet ? 'mainnet' : 'testnet'];
     const configurations = await Promise.all(chains.map(async(chain) => {
         const w3 = new Web3(chain.rpc);
         return {
