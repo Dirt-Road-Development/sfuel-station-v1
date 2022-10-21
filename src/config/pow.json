@@ -29,7 +29,7 @@
     {
         "chainId": "1564830818",
         "name": "Calypso",
-        "rpc": "https://honorable-steel-rasalhague.mainnet.skalenodes.com",
+        "rpc": "https://mainnet.skalenodes.com/v1/honorable-steel-rasalhague",
         "developer": {
                 "address": "0x000E9c53C4e2e21F5063f2e232d0AA907318dccb",
                 "fnHash": "0x0c11dedd"
