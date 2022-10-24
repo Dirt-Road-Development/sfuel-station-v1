@@ -20,6 +20,13 @@ export const Centered = styled.div`
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 10000;
+    @media(max-width: 864px) {
+        top: 0%;
+        left: 25%;
+        right: 25%;
+        width: 100%;
+        transform: translate(-25%, 25%);
+    }
 `;
 
 
@@ -29,6 +36,9 @@ export const Title = styled.h1`
     z-index: 10000;
     text-align: center;
     font-family: 'Spline Sans Mono', monospace;
+    @media(max-width: 864px) {
+        font-size: 2em;
+    }
 `;
 
 export const Slogan = styled.p`
@@ -36,6 +46,9 @@ export const Slogan = styled.p`
     color: var(--text-color);
     z-index: 10000;
     text-align: center;
+    @media(max-width: 864px) {
+        font-size: 1.05em;
+    }
 `;
 
 
@@ -45,38 +58,49 @@ export const VisualToggle = styled.div`
     right: 5%;
 `;
 
-export const AddressInput = styled.input({
-    width: '95%',
-    height: '100%',
-    padding: '0px 8px',
-    background: 'none',
-    border: '1px solid var(--accent-color)',
-    color: 'var(--text-color)',
-    fontSize: '1.25em'
-});
+export const AddressInput = styled.input`
+    width: 95%;
+    height: 75px;
+    padding: 0px 8px;
+    background: none;
+    border: 1px solid var(--accent-color);
+    color: var(--text-color);
+    fontSize: 1.25em;
+    @media(max-width: 864px) {
+        width: 100%;
+        text-align: center;
+    }
+`;
+export const FillAllButton = styled.div`
+    width: 25%
+    height: 75px;
+    padding: 10px  8px;
+    background: var(--accent-color);
+daniel@clet.domains    border: 1px solid var(--accent-color);
+    color: var(--background-color);
+    font-size: 1em;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    @media(max-width: 864px) {
+        width: 100%;
+        height: 25px;
+    }
+`;
 
-export const FillAllButton = styled.div({
-    width: '25%',
-    height: '100%',
-    background: 'var(--accent-color)',
-    border: '1px solid var(--accent-color)',
-    color: 'var(--background-color)',
-    fontSize: '1em',
-    fontWeight: '700',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    cursor: 'pointer'
-});
-
-export const FillRow = styled.div({
-    display: 'flex',
-    flexDirection: 'row',
-    justifyContent: 'flex-end',
-    alignItems: 'center',
-    width: '100%',
-    height: '75px',
-});
+export const FillRow = styled.div`
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    width: 100%;
+    height: auto;
+    @media(max-width: 864px) {
+       flex-wrap: wrap; 
+    }
+`;
 
 export const ChainStatusList = styled.div`
     width: 100%;
@@ -89,6 +113,10 @@ export const ChainStatusList = styled.div`
     align-items: space-between;
     justify-content: center; 
     flex-wrap: wrap;
+    @media(max-width: 864px) {
+        bottom: 25%;
+        align-items: space-evenly;
+    }
 `;
 
 interface CSParams {
@@ -103,6 +131,10 @@ export const ChainStatus = styled.a<CSParams>`
     color: ${props => props.color};
     &:hover {
         color: var(--text-color);
+    }
+    @media(max-width: 864px) {
+        min-width: 12vw;
+        margin: 0 4px;
     }
 `;
 
