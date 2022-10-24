@@ -148,7 +148,7 @@ export default function FillUp() {
                 <Component.Slogan>Click Fuel Wallet to automatically fill up across all supported SKALE Chains. Want to fill up a different address? Copy and paste it in</Component.Slogan>
                 <span style={{ height: '15px' }} />
                 <Component.FillRow>
-                    <Component.AddressInput type="text" value={account} onChange={(e) => {
+                    <Component.AddressInput type="text" value={account} onChange={(e: any) => {
                         e.preventDefault();
                         setAccount(e.target.value);
                     }} />
