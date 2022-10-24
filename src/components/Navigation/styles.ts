@@ -18,10 +18,14 @@ export const Title = styled.h1`
   width: 25%;
   margin-left: 1.5ch;
   color: var(--text-color);
+  @media(max-width: 864px) {
+    width: 50%;
+    font-size: 1.25em;
+  }
 `;
 
 export const Row = styled.div`
-    width: 70%;
+    width: 50%;
     display: flex;
     flex-direction: row;
     align-items: center;
