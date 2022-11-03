@@ -101,3 +101,7 @@ export const FillRow = styled.div`
        flex-wrap: wrap; 
     }
 `;
+
+export const Message = styled.p<{ color?: string }>`
+    color: ${props => props.color ?? 'var(--text-color)'};
+`;
