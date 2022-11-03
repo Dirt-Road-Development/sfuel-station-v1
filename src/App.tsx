@@ -6,6 +6,7 @@ import { publicProvider } from 'wagmi/providers/public';
 import Station from './Station';
 import FuelCookieConsent from './components/CookieConsent';
 import {initGoogleAnalytics} from './utils/analytics';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
 const { chains, provider } = configureChains(
     [chain.mainnet],
@@ -39,12 +40,18 @@ function App() {
             overlayBlur: 'small',
         })}
       >
-            <main>
-                <Components.Navigation />
-                    <FuelCookieConsent initGA={initGoogleAnalytics} />
-                    <Station />
-                <Components.Footer/>
-            </main>
+            <Router>
+                <main>
+                    <Components.Navigation />
+                        <FuelCookieConsent initGA={initGoogleAnalytics} />
+                        <Routes>
+                            <Route path='/' element={ <Station network="mainnet" /> } />
+                            <Route path='/staging' element={ <Station network="staging" /> } />
+                            <Route path='/hackathon' element={ <Station network="hackathon" /> } />
+                        </Routes>
+                    <Components.Footer/>
+                </main>
+            </Router>
         </RainbowKitProvider>
     </WagmiConfig>
   );

@@ -33,8 +33,11 @@ Object.entries(ChainsWeb3.mainnet).forEach((v) => {
     };
 });
 
+interface Props {
+    network: "mainnet" | "staging" | "hackathon";
+}
 
-export default function FillUp() {
+export default function FillUp(props: Props) {
     
     const { chains, setBalance } = useContext(BalanceContext);
 
@@ -106,7 +109,7 @@ export default function FillUp() {
 
             const res = await userProofOfWork({
                 account: account,
-                isMainnet: true
+                network: props.network
             });
 
             let successScript = "";

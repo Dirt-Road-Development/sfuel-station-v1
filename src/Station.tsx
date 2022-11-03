@@ -21,7 +21,11 @@ const Container = styled.div`
     }
 `;
 
-export default function Station() {
+interface Props {
+    network: "mainnet" | "staging" | "hackathon";
+}
+
+export default function Station(props: Props) {
     const { address, isConnected, isConnecting, isDisconnected, connector } = useAccount();
    
     const _name: string | undefined = connector?.name;
@@ -38,7 +42,7 @@ export default function Station() {
         return (
             <Layout>
                 <Container>
-                    <Components.FillUp />
+                    <Components.FillUp network={props.network}  />
                 </Container>
             </Layout>
         );
