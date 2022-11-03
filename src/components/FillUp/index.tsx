@@ -164,12 +164,6 @@ export default function FillUp() {
                 </Component.FillRow>)}
             </Component.Centered>
             <ChainList />
-            {/*// <Component.ChainStatusList>
-            //     {Object.entries(ChainsWeb3.mainnet).map((v: any, index: number) => {
-            //         let textColor = 'var(--text-color)';
-            //         return <Component.ChainStatus key={index} color={textColor}>{v[1].name}</Component.ChainStatus>
-            //     })} 
-            // </Component.ChainStatusList> */}
         </Component.Container>
     );
 }
