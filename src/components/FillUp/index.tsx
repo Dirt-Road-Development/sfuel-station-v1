@@ -8,6 +8,7 @@ import { userProofOfWork } from '../../utils/pow';
 import useMessage from '../../hooks/message';
 import LoadingIcon from '../LoadingIcon';
 import {changeAddress, fillUpChains} from '../../utils/analytics';
+import ChainList from '../ChainList';
 
 interface IChain {
     isLoading: boolean;
@@ -162,12 +163,13 @@ export default function FillUp() {
                     <Component.Message color={message.color}>{message.message}</Component.Message>
                 </Component.FillRow>)}
             </Component.Centered>
-            <Component.ChainStatusList>
-                {Object.entries(ChainsWeb3.mainnet).map((v: any, index: number) => {
-                    let textColor = 'var(--text-color)';
-                    return <Component.ChainStatus key={index} color={textColor}>{v[1].name}</Component.ChainStatus>
-                })} 
-            </Component.ChainStatusList>
+            <ChainList />
+            {/*// <Component.ChainStatusList>
+            //     {Object.entries(ChainsWeb3.mainnet).map((v: any, index: number) => {
+            //         let textColor = 'var(--text-color)';
+            //         return <Component.ChainStatus key={index} color={textColor}>{v[1].name}</Component.ChainStatus>
+            //     })} 
+            // </Component.ChainStatusList> */}
         </Component.Container>
     );
 }
