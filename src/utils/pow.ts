@@ -10,10 +10,10 @@ import {configureChains} from 'wagmi';
 
 interface Params {
     account: string;
-    isMainnet: boolean;
+    network: "mainnet" | "staging" | "hackathon";
 }
 
-export const userProofOfWork = async (params: Params ) : Promise<any> => {
+export const userProofOfWork = async (params: Params) : Promise<any> => {
 
     const web3 = new Web3();
 
@@ -27,7 +27,7 @@ export const userProofOfWork = async (params: Params ) : Promise<any> => {
 
     const gasPrice: string = await mineGasForTransaction(web3, nonce, gas, randomSignerAddress);
     
-    const chains = PowChains[params.isMainnet ? 'mainnet' : 'testnet'];
+    const chains = PowChains[params.network];
     const configurations = await Promise.all(chains.map(async(chain) => {
         const w3 = new Web3(chain.rpc);
         return {
@@ -79,5 +79,3 @@ export const userProofOfWork = async (params: Params ) : Promise<any> => {
 
 
 export const devProofOfWork = async(params: Params) : Promise<any> => {}
-
-

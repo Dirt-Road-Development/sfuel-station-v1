@@ -1,5 +1,5 @@
 {
-  "testnet": [
+  "staging": [
     {
         "chainId": "104734457",
         "name": "Calypso",
@@ -79,6 +79,28 @@
             "address": "0xa5C297dF8f8386E4b940D61EF9A8f2bB367a6fAB",
             "fnHash": "0x0c11dedd",
             "maxFuel": "0.005"
+        }
+    }
+  ],
+  "hackathon": [
+    {
+        "chainId": "647426021",
+        "name": "HACK 1",
+        "rpc": "https://eth-sf.skalenodes.com/v1/hackathon-complex-easy-naos",
+        "public": {
+            "address": "",
+            "fnHash": "",
+            "maxFuel": "0.0075"
+        }
+    },
+    {
+        "chainId": "256236330",
+        "name": "HACK 1",
+        "rpc": "https://eth-sf.skalenodes.com/v1/hackathon-content-live-vega",
+        "public": {
+            "address": "",
+            "fnHash": "",
+            "maxFuel": "0.0075"
         }
     }
   ]
