@@ -7,6 +7,7 @@ import Station from './Station';
 import FuelCookieConsent from './components/CookieConsent';
 import {initGoogleAnalytics} from './utils/analytics';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { SFuelPopup } from './components/SFuelPopup';
 
 const { chains, provider } = configureChains(
     [chain.mainnet],
@@ -49,6 +50,7 @@ function App() {
                             <Route path='/staging' element={ <Station network="staging" /> } />
                             <Route path='/hackathon' element={ <Station network="hackathon" /> } />
                         </Routes>
+                    <SFuelPopup />
                     <Components.Footer/>
                 </main>
             </Router>

@@ -19,7 +19,7 @@ export const Centered = styled.div`
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    z-index: 10000;
+    // z-index: 10000;
     @media(max-width: 864px) {
         top: 0%;
         left: 25%;
@@ -33,7 +33,7 @@ export const Centered = styled.div`
 export const Title = styled.h1`
     font-size: 2.5em;
     color: var(--primary-color);
-    z-index: 10000;
+    // z-index: 10000;
     text-align: center;
     font-family: 'Spline Sans Mono', monospace;
     @media(max-width: 864px) {
@@ -44,7 +44,7 @@ export const Title = styled.h1`
 export const Slogan = styled.p`
     font-size: 1.25em;
     color: var(--text-color);
-    z-index: 10000;
+    // z-index: 10000;
     text-align: center;
     @media(max-width: 864px) {
         font-size: 1.05em;
@@ -76,7 +76,7 @@ export const FillAllButton = styled.div`
     height: 75px;
     padding: 10px  8px;
     background: var(--accent-color);
-daniel@clet.domains    border: 1px solid var(--accent-color);
+    border: 1px solid var(--accent-color);
     color: var(--background-color);
     font-size: 1em;
     font-weight: 700;
