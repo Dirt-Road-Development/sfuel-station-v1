@@ -7,14 +7,14 @@ const modalStyles: ReactModal.Styles = {
     content: {
         zIndex: '1000000000000000',
         position: 'relative',
-        top: '12.5%',
-        left: '12.5%',
-        right: '12.5%',
-        bottom: '12.5%',
+        top: '0',
+        left: '0',
+        right: '0',
+        bottom: '0',
         backgroundColor: 'black', 
-        width: '75%',
-        height: '75%',
-        borderRadius: '32px',
+        width: '100%',
+        height: '100%',
+        // borderRadius: '32px',
         boxShadow: '0 0 2px 2px var(--background-color)'
     }
 };
@@ -44,7 +44,7 @@ const ModalContainer = styled.div`
     width: 100%;
     height: 100%;
     background: black;
-    postion: absolute;
+    postion: relative;
 `;
 
 ReactModal.setAppElement('#modal');
@@ -52,7 +52,22 @@ ReactModal.setAppElement('#modal');
 const Image = styled.img`
     width: 100%;
     height: 100%;
+    transform: scale(100%);
 `;
+
+const Header = styled.h3`
+    position: absolute;
+    left: 5%;
+    top: 5%;
+    width: 100%;
+    z-index: 1000000000;
+    color: white;
+    font-size: 2.5em;
+    p {
+        font-size: 0.85rem;
+    }
+`;
+
 
 export const SFuelPopup = () => {
     
@@ -84,7 +99,8 @@ export const SFuelModal = (props: any) => {
                 isOpen={props.isModalOpen}
             >
                 <ModalContainer>
-                    <Image src={sFUELV4} alt="sFUEL Representation" />
+                    <Header>How sFUEL Works<br /><p>sFUEL is the gasless</p></Header>
+                    <Image src={sFUELV4} alt="sFUEL Representation" /> 
                 </ModalContainer>
             </ReactModal>
         </> 
