@@ -1,21 +1,23 @@
 import {useState} from 'react';
 import styled from 'styled-components';
-import sFUELV4 from '../../assets/sfuel_graphic_v4.svg';
+import sFUELV4 from '../../assets/how_sfuel_works.svg';
+import sFUELTokenIcon from '../../assets/sfuel_gas_token.svg';
 import ReactModal from "react-modal";
 
 const modalStyles: ReactModal.Styles = {
     content: {
-        zIndex: '1000000000000000',
-        position: 'relative',
-        top: '0',
-        left: '0',
-        right: '0',
-        bottom: '0',
-        backgroundColor: 'black', 
+        zIndex: '100000000000',
         width: '100%',
         height: '100%',
-        // borderRadius: '32px',
-        boxShadow: '0 0 2px 2px var(--background-color)'
+        position: 'absolute',
+        top: 0,
+        left: 0,
+        right: '0',
+        maxWidth: '100vw',
+        maxHeight: '100vh',
+        overflow: 'none',
+        padding: 0,
+        margin: 0
     }
 };
 
@@ -26,8 +28,6 @@ const PopupContainer = styled.div`
     right: 2.5%;
     height: 100px;
     width: 100px;
-    background: black;
-    border-radius: 50%;
     z-index: 10000;
     display: flex;
     flex-direction: row;
@@ -35,8 +35,15 @@ const PopupContainer = styled.div`
     justify-content: center;
 
     #gas_pump {
-        color: white;
-        transform: scale(300%);
+        color: red;
+        background: white;
+        border-radius: 50%;
+        padding: 16px 32px;
+        font-size: 2em;
+    }
+
+    #gas_icon {
+        background: none;
     }
 `;
 
@@ -55,20 +62,6 @@ const Image = styled.img`
     transform: scale(100%);
 `;
 
-const Header = styled.h3`
-    position: absolute;
-    left: 5%;
-    top: 5%;
-    width: 100%;
-    z-index: 1000000000;
-    color: white;
-    font-size: 2.5em;
-    p {
-        font-size: 0.85rem;
-    }
-`;
-
-
 export const SFuelPopup = () => {
     
     const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
@@ -80,7 +73,8 @@ export const SFuelPopup = () => {
 
     return (
         <PopupContainer onClick={toggleModal}>
-            <p id="gas_pump">&#9981;</p>
+            {isModalOpen ? <p id="gas_pump">X</p> : <img id="gas_icon" src={sFUELTokenIcon} alt="sFUEL Token Icon" />}
+
             <SFuelModal
                 isModalOpen={isModalOpen}
                 toggleModal={toggleModal}
@@ -99,7 +93,6 @@ export const SFuelModal = (props: any) => {
                 isOpen={props.isModalOpen}
             >
                 <ModalContainer>
-                    <Header>How sFUEL Works<br /><p>sFUEL is the gasless</p></Header>
                     <Image src={sFUELV4} alt="sFUEL Representation" /> 
                 </ModalContainer>
             </ReactModal>

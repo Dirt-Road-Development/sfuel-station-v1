@@ -25,7 +25,7 @@
         }
     }
   ],
-  "mainnet": [0x6a6278420
+  "mainnet": [
     {
         "chainId": "1564830818",
         "name": "Calypso",

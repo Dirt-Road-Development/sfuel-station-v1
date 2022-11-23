@@ -24,6 +24,7 @@ export default function FuelCookieConsent({ initGA }: { initGA: (gaCode: string)
         if (isConsent === "true") {
             acceptCookies();
         }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     return (

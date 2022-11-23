@@ -1,6 +1,6 @@
 import * as Component from './styles';
 import ChainsWeb3 from '../../config/chains.json';
-import { createRef, MutableRefObject, useContext, useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { useAccount } from 'wagmi';
 import { BalanceContext } from '../../context/BalanceContext';
 import { BigNumber, ethers } from 'ethers';
@@ -17,9 +17,9 @@ interface IChain {
     chainId: string;
 }
 
-type ChainList = {[key: string]: IChain};
+type TChainList = {[key: string]: IChain};
 
-let DEFAULT_CHAINS: ChainList = {};
+let DEFAULT_CHAINS: TChainList = {};
 
 const default_values = {
     isLoading: false,
@@ -93,6 +93,7 @@ export default function FillUp(props: Props) {
         }
         isValidAddress();
         getBalances();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [account]);
     
     const fillUp = async() => {

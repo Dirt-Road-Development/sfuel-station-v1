@@ -20,7 +20,7 @@ const modalStyles: ReactModal.Styles = {
 
 ReactModal.setAppElement('#root');
 
-export default({
+const Modal = () => ({
     isModalOpen,
     toggleModal,
     children
@@ -47,3 +47,5 @@ export default({
         </div>
     );
 }
+
+export default Modal;
