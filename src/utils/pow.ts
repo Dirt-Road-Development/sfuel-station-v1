@@ -3,10 +3,6 @@ import Web3 from 'web3';
 import mineGasForTransaction from './miner';
 import { Wallet } from '@ethersproject/wallet';
 import BN from 'bn.js';
-import {config} from 'process';
-import {configure} from '@testing-library/react';
-import {BigNumber, utils} from 'ethers';
-import {configureChains} from 'wagmi';
 
 interface Params {
     account: string;

@@ -11,7 +11,7 @@ export default function ChainList() {
         <Component.Container>
             {Projects.chains.map((proj, index: number) => {
                 const color: string = !isDarkTheme ? proj.light : proj.dark;
-                return <Component.Word href={proj.url} color={color} key={index}>{proj.name}</Component.Word>
+                return <Component.Word href={proj.url} target="_blank" color={color} key={index}>{proj.name}</Component.Word>
             })}
         </Component.Container> 
     );

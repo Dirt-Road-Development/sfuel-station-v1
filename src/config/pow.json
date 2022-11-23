@@ -57,7 +57,7 @@
         "rpc": "https://mainnet.skalenodes.com/v1/elated-tan-skat",
         "public": {
             "address": "0x2B267A3e49b351DEdac892400a530ABb2f899d23",
-            "fnHash": "0x6a6278420",
+            "fnHash": "0x6a627842",
             "maxFuel": "0.1"
         }
     },

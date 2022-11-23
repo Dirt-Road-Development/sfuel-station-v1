@@ -1,6 +1,6 @@
 import * as Component from './styles';
 import ChainsWeb3 from '../../config/chains.json';
-import { createRef, MutableRefObject, useContext, useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { useAccount } from 'wagmi';
 import { BalanceContext } from '../../context/BalanceContext';
 import { BigNumber, ethers } from 'ethers';
@@ -17,9 +17,9 @@ interface IChain {
     chainId: string;
 }
 
-type ChainList = {[key: string]: IChain};
+type TChainList = {[key: string]: IChain};
 
-let DEFAULT_CHAINS: ChainList = {};
+let DEFAULT_CHAINS: TChainList = {};
 
 const default_values = {
     isLoading: false,
@@ -93,6 +93,7 @@ export default function FillUp(props: Props) {
         }
         isValidAddress();
         getBalances();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [account]);
     
     const fillUp = async() => {
@@ -149,7 +150,7 @@ export default function FillUp(props: Props) {
         <Component.Container>
             <Component.Centered>
                 <Component.Title>Ready to <strong>FUEL</strong> Up?</Component.Title>
-                <Component.Slogan>Click Fuel Wallet to automatically fill up across all supported SKALE Chains. Want to fill up a different address? Copy and paste it in</Component.Slogan>
+                <Component.Slogan><strong style={{ color: "var(--primary-color)" }}>Click Fuel Wallet </strong>to automatically fill up across all supported SKALE Chains. Want to fill up a different address? Copy and paste it in</Component.Slogan>
                 <span style={{ height: '15px' }} />
                 <Component.FillRow>
                     <Component.AddressInput type="text" value={account} onChange={(e: any) => {

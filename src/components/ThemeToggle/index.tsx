@@ -27,6 +27,7 @@ const ThemeToggle = () => {
     } else {
       document.body.removeAttribute("data-theme");
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   return (
