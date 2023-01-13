@@ -1,0 +1,65 @@
+    [
+        {
+            "name": "Calypso NFT Hub",
+            "url": "https://calypsohub.network",
+            "dark": "#DD1173",
+            "light": "#350E47",
+            "logo": "calypsoLogo.svg"
+        },
+        {
+            "name": "Clet Name Service",
+            "url": "https://clet.domains",
+            "dark": "#1CA130",
+            "light": "#1CA130",
+            "logo": "cletLogo.png"
+        },
+        {
+            "name": "CryptoBlades",
+            "url": "https://cryptoblades.io",
+            "light": "navy",
+            "dark": "#EDCD90",
+            "logo": "cryptoBladesLogo.webp"
+        },
+        {
+            "name": "CryptoColoseum",
+            "url": "https://cryptocolosseum.com",
+            "dark": "#D14509",
+            "light": "#D14509",
+            "logo": "cryptoColosseumLogo.svg"
+        },
+        {
+            "name": "Europa Liquidity Hub",
+            "url": "https://ruby.exchange",
+            "dark": "",
+            "light": "",
+            "logo": "europaHubLogo.png"
+        },
+        {
+            "name": "NFTrade",
+            "url": "https://nftrade.com",
+            "dark": "#0099FA",
+            "light": "#0099FA",
+            "logo": "nftradeLogo.svg"
+        },
+        {
+            "name": "Razor Network",
+            "url": "https://razor.network",
+            "light": "#171AA5",
+            "dark": "#f8f9fa",
+            "logo": "razorNetworkLogo.svg"
+        },
+        {
+            "name": "Ruby.Exchange",
+            "url": "https://ruby.exchange",
+            "dark": "#EA3B4D",
+            "light": "#000e1d",
+            "logo": "rubyExchangeLogo.png"
+        },
+        {
+            "name": "Titan Community Chain",
+            "url": "https://skale.space",
+            "light": "#070766",
+            "dark": "#00BAFF",
+            "logo": "skale_logo_blue.svg"
+        }
+    ]
