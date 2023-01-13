@@ -9,6 +9,8 @@ import useMessage from '../../hooks/message';
 import LoadingIcon from '../LoadingIcon';
 import {changeAddress, fillUpChains} from '../../utils/analytics';
 import ChainList from '../ChainList';
+import FillingUpModal from './FillingUpModal';
+import FilledUpModal from './FilledUpModal';
 
 interface IChain {
     isLoading: boolean;
@@ -37,7 +39,7 @@ interface Props {
     network: "mainnet" | "staging" | "hackathon";
 }
 
-export default function FillUp(props: Props) {
+const FillUp = (props: Props) => {
     
     const { chains, setBalance } = useContext(BalanceContext);
 
@@ -51,6 +53,11 @@ export default function FillUp(props: Props) {
     const [ message, setMessage ] = useMessage(); 
     const [ account, setAccount ] = useState<string | undefined>(address);
     const [ fillStatus, setFillStatus ] = useState<string>("unfilled");
+    const [ isModalOpen, setIsModalOpen ] = useState<boolean>(false);
+
+    const toggleModal = () => {
+        setIsModalOpen(!isModalOpen);
+    }
 
     useEffect(() => {
         const getBalances = async() => {
@@ -98,6 +105,7 @@ export default function FillUp(props: Props) {
     
     const fillUp = async() => {
         setFillStatus("filling");
+        setIsModalOpen(true);
         try {
 
             if (!address || !account) {
@@ -148,6 +156,17 @@ export default function FillUp(props: Props) {
        
     return (
         <Component.Container>
+            {fillStatus === "filling" && 
+            <FillingUpModal
+                isModalOpen={isModalOpen}
+                toggleModal={toggleModal}
+            />}
+            {fillStatus === "filled" && 
+               <FilledUpModal 
+                isModalOpen={isModalOpen}
+                toggleModal={toggleModal}
+                   message={typeof message === "string" ? message : message?.message ?? "Success"}
+            />}
             <Component.Centered>
                 <Component.Title>Ready to <strong>FUEL</strong> Up?</Component.Title>
                 <Component.Slogan><strong style={{ color: "var(--primary-color)" }}>Click Fuel Wallet </strong>to automatically fill up across all supported SKALE Chains. Want to fill up a different address? Copy and paste it in</Component.Slogan>
@@ -159,6 +178,7 @@ export default function FillUp(props: Props) {
                     }} />
                     <Component.FillAllButton onClick={async (e) => {
                         e.preventDefault();
+                        if (fillStatus == "filled") { toggleModal(); return;}
                         if (fillStatus !== "unfilled") return;
                         await fillUp();
                     }}><FillStatus status={fillStatus} /></Component.FillAllButton>
@@ -185,3 +205,5 @@ const FillStatus = ({ status }: { status: string }) => {
     }
 
 }
+
+export default FillUp;

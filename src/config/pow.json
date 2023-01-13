@@ -2,7 +2,7 @@
   "staging": [
     {
         "chainId": "104734457",
-        "name": "Calypso",
+        "name": "Calypso V2",
         "rpc": "https://staging-v2.skalenodes.com/v1/actual-secret-cebalrai",
         "developer": {
             "address": "0x6A15024cd025066700d27190dD5F2F220c4d3824",
@@ -15,13 +15,13 @@
         }
     },
     {
-        "chainId": "",
-        "name": "Whispering-Turais",
-        "rpc": "https://staging-v2.skalenodes.com/v1/whispering-turais",
+        "chainId": "344106930",
+        "name": "Calypso V3",
+        "rpc": "https://staging-v3.skalenodes.com/v1/staging-utter-unripe-menkar",
         "public": {
-            "address": "0xb2241D4E1aBABbeD041f99A2a0aCea972015Cd2f",
+            "address": "0xa9eC34461791162Cae8c312C4237C9ddd1D64336",
             "fnHash": "0x0c11dedd",
-            "maxFuel": "0.005"
+            "maxFuel": "0.0075"
         }
     }
   ],
