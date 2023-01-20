@@ -43,6 +43,12 @@
       "name": "SKALE Community Chain",
       "nativeCurrency": "SFUEL",
       "blockExplorerUrls": ["https://parallel-stormy-spica.explorer.mainnet.skalenodes.com/"]
+    },
+    "1273227453": {
+      "urls": ["https://mainnet.skalenodes.com/v1/wan-red-ain"],
+      "name": "HUMAN Protocol Chain",
+      "nativeCurrency": "SFUEL",
+      "blockExplorerUrls": ["https://wan-red-ain.explorer.mainnet.skalenodes.com/"]
     }
   }
 }
