@@ -80,6 +80,16 @@
             "fnHash": "0x0c11dedd",
             "maxFuel": "0.005"
         }
+    },
+    {
+        "chainId": "1273227453",
+        "name": "HUMAN",
+        "rpc": "https://mainnet.skalenodes.com/v1/wan-red-ain",
+        "public": {
+            "address": "0xb51a0E538c76C82e76757dc6D5a3938136C03c0C",
+            "fnHash": "0x0c11dedd",
+            "maxFuel": "0.0001"
+        }
     }
   ],
   "hackathon": [

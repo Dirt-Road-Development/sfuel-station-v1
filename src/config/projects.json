@@ -61,5 +61,12 @@
             "light": "#070766",
             "dark": "#00BAFF",
             "logo": "skale_logo_blue.svg"
+        },
+        {
+            "name": "HUMAN Protocol Chain",
+            "url": "https://app.humanprotocol.org/",
+            "light": "#171AA5",
+            "dark": "#f8f9fa",
+            "logo": "human-logo.svg"
         }
     ]

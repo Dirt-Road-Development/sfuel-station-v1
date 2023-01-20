@@ -29,6 +29,12 @@
             "url": "https://skale.space",
             "light": "#070766",
             "dark": "#00BAFF"
+        },
+        {
+            "name": "HUMAN Protocol Chain",
+            "url": "https://app.humanprotocol.org/",
+            "dark": "#DD1173",
+            "light": "#350E47"
         }
     ]
 }
