@@ -65,8 +65,8 @@
         {
             "name": "HUMAN Protocol Chain",
             "url": "https://app.humanprotocol.org/",
-            "light": "#171AA5",
-            "dark": "#f8f9fa",
+            "light": "#6309FF",
+            "dark": "#6309FF",
             "logo": "human-logo.svg"
         }
     ]
