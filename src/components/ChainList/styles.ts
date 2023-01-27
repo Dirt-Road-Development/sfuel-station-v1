@@ -21,7 +21,7 @@ interface WordParams {
 }
 
 export const Word = styled.a<WordParams>`
-    width: auto;
+    width: 30%;
     min-width: 10vw;
     text-align: center;
     text-decoration: none;
