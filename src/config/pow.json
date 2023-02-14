@@ -23,6 +23,16 @@
             "fnHash": "0x0c11dedd",
             "maxFuel": "0.0075"
         }
+    },
+    {
+        "chainId": "1351057110",
+        "name": "CHAOS",
+        "rpc": "https://staging-v3.skalenodes.com/v1/staging-fast-active-bellatrix",
+        "public": {
+            "address": "0x2edF5af1896D3d259a1a535e87f18312858E448F",
+            "fnHash": "0x0c11dedd",
+            "maxFuel": "0.0001"
+        }
     }
   ],
   "mainnet": [

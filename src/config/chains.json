@@ -11,7 +11,13 @@
       "name": "Calypso Testnet",
       "nativeCurrency": "SFUEL",
       "blockExplorerUrls": ["https://actual-secret-cebalrai.explorer.staging-v2.skalenodes.com"]
-    }
+    },
+    "1351057110": {
+      "urls": ["https://staging-v3.skalenodes.com/v1/staging-fast-active-bellatrix"],
+      "name": "CHAOS Testnet",
+      "nativeCurrency": "SFUEL",
+      "blockExplorerUrls": ["https://staging-fast-active-bellatrix.explorer.staging-v3.skalenodes.com/"]
+    },
   },
   "mainnet": {
     "1564830818": {
