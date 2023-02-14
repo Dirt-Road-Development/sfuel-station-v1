@@ -52,7 +52,7 @@ export default function Station(props: Props) {
     return (
         <Layout>
             <Container>
-                <Landing />    
+                <Landing network={props.network} />    
             </Container>
         </Layout>
     );

@@ -47,9 +47,12 @@ function App() {
                         <FuelCookieConsent initGA={initGoogleAnalytics} />
                         <Routes>
                             <Route path='/' element={ <Station network="mainnet" /> } />
+                            <Route path='/mainnet/' element={ <Station network="mainnet" /> } />
+                            <Route path='/mainnet/:chainName' element={ <Station network="mainnet" /> } />
                             <Route path='/staging' element={ <Station network="staging" /> } />
                             <Route path='/staging/:chainName' element={ <Station network="staging" /> } />
                             <Route path='/hackathon' element={ <Station network="hackathon" /> } />
+                            <Route path='/hackathon/:chainName' element={ <Station network="hackathon" /> } />
                         </Routes>
                     <SFuelPopup />
                     <Components.Footer/>

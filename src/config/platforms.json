@@ -1,40 +1,56 @@
 {
-    "chains": [
+    "mainnet": [
         {
+            "nameId": "calypso",
             "name": "Calypso NFT Hub",
             "url": "https://calypsohub.network",
             "dark": "#DD1173",
             "light": "#350E47"
         },
         {
+            "nameId": "cryptoblades",
             "name": "CryptoBlades",
             "url": "https://cryptoblades.io",
             "light": "navy",
             "dark": "#EDCD90"
         },
         {
+            "nameId": "europa",
             "name": "Europa Hub",
             "url": "https://ruby.exchange",
             "dark": "#EA3B4D",
             "light": "#000e1d"
         },
         {
+            "nameId": "razor",
             "name": "Razor Network",
             "url": "https://razor.network",
             "light": "#171AA5",
             "dark": "#f8f9fa"
         },
         {
+            "nameId": "titan",
             "name": "SKALE Community Chain",
             "url": "https://skale.space",
             "light": "#070766",
             "dark": "#00BAFF"
         },
         {
+            "nameId": "human",
             "name": "HUMAN Protocol Chain",
             "url": "https://app.humanprotocol.org/",
             "dark": "#6309FF",
             "light": "#6309FF"
         }
-    ]
+    ],
+    "staging": [
+        {
+            "nameId": "chaos",
+            "name": "CHAOS Chain",
+            "url": "https://docs.skale.network/develop/",
+            "dark": "#EA3B4D",
+            "light": "#000e1d"
+        }
+    ],
+    "hackathon": []
 }

@@ -209,7 +209,7 @@ const FillUp = (props: Props) => {
                     <Component.Message color={message.color}>{message.message}</Component.Message>
                 </Component.FillRow>)}
             </Component.Centered>
-            <ChainList />
+            <ChainList network={props.network} />
         </Component.Container>
     );
 }
