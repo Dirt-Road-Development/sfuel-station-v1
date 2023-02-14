@@ -23,6 +23,7 @@ const Container = styled.div`
 
 interface Props {
     network: "mainnet" | "staging" | "hackathon";
+    chainName?: string;
 }
 
 export default function Station(props: Props) {
@@ -51,7 +52,7 @@ export default function Station(props: Props) {
     return (
         <Layout>
             <Container>
-                <Landing />    
+                <Landing network={props.network} />    
             </Container>
         </Layout>
     );
