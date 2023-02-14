@@ -23,6 +23,7 @@ const Container = styled.div`
 
 interface Props {
     network: "mainnet" | "staging" | "hackathon";
+    chainName?: string;
 }
 
 export default function Station(props: Props) {

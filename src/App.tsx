@@ -48,6 +48,7 @@ function App() {
                         <Routes>
                             <Route path='/' element={ <Station network="mainnet" /> } />
                             <Route path='/staging' element={ <Station network="staging" /> } />
+                            <Route path='/staging/:chainName' element={ <Station network="staging" /> } />
                             <Route path='/hackathon' element={ <Station network="hackathon" /> } />
                         </Routes>
                     <SFuelPopup />

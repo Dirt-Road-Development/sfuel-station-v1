@@ -11,6 +11,8 @@ import {changeAddress, fillUpChains} from '../../utils/analytics';
 import ChainList from '../ChainList';
 import FillingUpModal from './FillingUpModal';
 import FilledUpModal from './FilledUpModal';
+import { chainIdFromChainName } from '../../utils/chainIds';
+import { useParams } from "react-router-dom";
 
 interface IChain {
     isLoading: boolean;
@@ -40,6 +42,8 @@ interface Props {
 }
 
 const FillUp = (props: Props) => {
+
+    const { chainName } = useParams();
     
     const { chains, setBalance } = useContext(BalanceContext);
 
@@ -116,10 +120,28 @@ const FillUp = (props: Props) => {
                 throw new Error("Invalid Ethereum Address");
             }
 
-            const res = await userProofOfWork({
+            let chainId = "";
+            const powOpt: {
+                account: string,
+                network: "mainnet" | "staging" | "hackathon",
+                chainId?: string
+            } = {
                 account: account,
                 network: props.network
-            });
+            }
+            if (chainName) {
+                const opt = {
+                    network: props.network,
+                    chainName: chainName
+                };
+
+                chainId = chainIdFromChainName(opt);
+                if (chainId !== "") {
+                    powOpt.chainId = chainId;
+                }
+            }
+
+            const res = await userProofOfWork(powOpt);
 
             let successScript = "";
 

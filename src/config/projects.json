@@ -68,5 +68,12 @@
             "light": "#6309FF",
             "dark": "#6309FF",
             "logo": "human-logo.svg"
+        },
+        {
+            "name": "CHAOS Chain",
+            "url": "https://docs.skale.network/develop",
+            "light": "#6309FF",
+            "dark": "#6309FF",
+            "logo": "chaos.svg"
         }
     ]

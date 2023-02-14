@@ -7,6 +7,7 @@ import BN from 'bn.js';
 interface Params {
     account: string;
     network: "mainnet" | "staging" | "hackathon";
+    chainId?: string | undefined;
 }
 
 export const userProofOfWork = async (params: Params) : Promise<any> => {
@@ -24,23 +25,26 @@ export const userProofOfWork = async (params: Params) : Promise<any> => {
     const gasPrice: string = await mineGasForTransaction(web3, nonce, gas, randomSignerAddress);
     
     const chains = PowChains[params.network];
+    const selectedChainId = params.chainId;
     const configurations = await Promise.all(chains.map(async(chain) => {
         const w3 = new Web3(chain.rpc);
-        return {
-            chain,
-            web3: w3, 
-            to: chain.public.address,
-            data: chain.public.fnHash + "000000000000000000000000" + params.account.substring(2),
-            nonce,
-            gas,
-            gasPrice,
-            balance: await w3.eth.getBalance(params.account)
-        };
+        if (!selectedChainId || chain.chainId === selectedChainId) { 
+            return {
+                chain,
+                web3: w3, 
+                to: chain.public.address,
+                data: chain.public.fnHash + "000000000000000000000000" + params.account.substring(2),
+                nonce,
+                gas,
+                gasPrice,
+                balance: await w3.eth.getBalance(params.account)
+            };
+        }
     }));
 
     const transactions = await Promise.all(configurations.map(async(config) => {
          return {
-                signedTx: await config.web3.eth.accounts.signTransaction({
+                signedTx: await config?.web3.eth.accounts.signTransaction({
                     from: randomSignerAddress,
                     to: config.to,
                     data: config.data,
@@ -48,16 +52,16 @@ export const userProofOfWork = async (params: Params) : Promise<any> => {
                     gas: gas.toNumber(),
                     gasPrice
                 }, randomSignerPrivatekey),
-                w3: config.web3,
-                chain: config.chain.name
+                w3: config?.web3,
+                chain: config?.chain.name
             }
 
     }));
     
     const fillUps = await Promise.all(transactions.map(async(tx) => {
-        if (!tx.signedTx.rawTransaction) return "Error: Raw Transaction Does Not Exist";
+        if (!tx.signedTx?.rawTransaction) return "Error: Raw Transaction Does Not Exist";
         try {
-            await tx.w3.eth.sendSignedTransaction(tx.signedTx.rawTransaction);
+            await tx.w3?.eth.sendSignedTransaction(tx.signedTx.rawTransaction);
             return {
                 name: tx.chain,
                 action: 0
