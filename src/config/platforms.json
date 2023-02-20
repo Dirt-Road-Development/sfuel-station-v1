@@ -55,16 +55,23 @@
             "nameId": "dog",
             "name": "Dog chain",
             "url": "https://docs.skale.network/develop/",
-            "light": "#070766",
-            "dark": "#00BAFF"
+            "dark": "#DD1173",
+            "light": "#350E47"
         },
         {
             "nameId": "cat",
             "name": "Cat chain",
             "url": "https://docs.skale.network/develop/",
+            "light": "#070766",
+            "dark": "#00BAFF"
+        },
+        {
+            "nameId": "calypso",
+            "name": "Calypso NFT Hub",
+            "url": "https://calypsohub.network",
             "dark": "#DD1173",
             "light": "#350E47"
-        }
+        },
     ],
     "hackathon": []
 }
