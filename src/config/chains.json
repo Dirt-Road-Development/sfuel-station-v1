@@ -5,6 +5,18 @@
       "name": "CHAOS Testnet",
       "nativeCurrency": "SFUEL",
       "blockExplorerUrls": ["https://staging-fast-active-bellatrix.explorer.staging-v3.skalenodes.com/"]
+    },
+    "1370526269": {
+      "urls": ["https://staging-v3.skalenodes.com/v1/staging-perfect-parallel-gacrux"],
+      "name": "Dog chain",
+      "nativeCurrency": "SFUEL",
+      "blockExplorerUrls": ["https://staging-perfect-parallel-gacrux.explorer.staging-v3.skalenodes.com/"]
+    },
+    "1287568050": {
+      "urls": ["https://staging-v3.skalenodes.com/v1/staging-severe-violet-wezen"],
+      "name": "cat chain",
+      "nativeCurrency": "SFUEL",
+      "blockExplorerUrls": ["https://staging-severe-violet-wezen.explorer.staging-v3.skalenodes.com/"]
     }
   },
   "mainnet": {

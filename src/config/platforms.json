@@ -50,6 +50,20 @@
             "url": "https://docs.skale.network/develop/",
             "dark": "#EA3B4D",
             "light": "#000e1d"
+        },
+        {
+            "nameId": "dog",
+            "name": "Dog chain",
+            "url": "https://docs.skale.network/develop/",
+            "light": "#070766",
+            "dark": "#00BAFF"
+        },
+        {
+            "nameId": "cat",
+            "name": "Cat chain",
+            "url": "https://docs.skale.network/develop/",
+            "dark": "#DD1173",
+            "light": "#350E47"
         }
     ],
     "hackathon": []
