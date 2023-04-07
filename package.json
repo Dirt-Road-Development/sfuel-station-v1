@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "@rainbow-me/rainbowkit": "^0.7.1",
+    "@skaleproject/pow-ethers": "^0.3.2-0",
     "@styled-icons/material": "^10.46.0",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",

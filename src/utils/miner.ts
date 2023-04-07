@@ -27,7 +27,7 @@ function mineFreeGas(gasAmount: any, address: any, nonce: any, web3: any) {
             break;
         }
     }
-    console.log("Candidate: ", candidate.toString());
+    
     return candidate.toString();
 }
 

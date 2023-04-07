@@ -125,7 +125,7 @@ const FilledUpModal = (props: Props) => {
     const {
         toggleModal,
         isModalOpen,
-        message
+        // message
     } = props;
     
     const { isDarkTheme } = useContext(ThemeContext);
@@ -146,7 +146,7 @@ const FilledUpModal = (props: Props) => {
                     {Projects && Projects.map((project: any, index: number) => {
                         return (
                             <Project href={project.url} color={isDarkTheme ? project.dark : project.light}>
-                                <img src={images[index]} alt="Project Image" />
+                                <img src={images[index]} alt="Project Identity" />
                                 <p>{project.name}</p>
                             </Project>
                         );
