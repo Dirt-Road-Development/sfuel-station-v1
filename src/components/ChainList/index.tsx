@@ -22,8 +22,6 @@ export default function ChainList(props: Props) {
 
     const projectsToMap = Projects[props.network].filter(proj => !isChainNameExist || proj.nameId.toLowerCase() === chainName?.toLowerCase())
 
-    console.log(projectsToMap);
-
     return (
         <Component.Container>
             {projectsToMap.map((proj, index: number) => {

@@ -2,7 +2,7 @@ import './App.css';
 import Components from './components';
 import { chain, configureChains, createClient, WagmiConfig } from 'wagmi';
 import { darkTheme, getDefaultWallets, RainbowKitProvider } from '@rainbow-me/rainbowkit';
-import { publicProvider } from 'wagmi/providers/public';
+import { jsonRpcProvider } from 'wagmi/providers/jsonRpc'
 import Station from './Station';
 import FuelCookieConsent from './components/CookieConsent';
 import {initGoogleAnalytics} from './utils/analytics';
@@ -12,7 +12,11 @@ import { SFuelPopup } from './components/SFuelPopup';
 const { chains, provider } = configureChains(
     [chain.mainnet],
     [
-        publicProvider()
+      jsonRpcProvider({
+        rpc: (chain) => ({
+          http: `https://eth.llamarpc.com`,
+        }),
+      }),
     ]
 );
 

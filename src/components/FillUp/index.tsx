@@ -200,7 +200,7 @@ const FillUp = (props: Props) => {
                     }} />
                     <Component.FillAllButton onClick={async (e) => {
                         e.preventDefault();
-                        if (fillStatus == "filled") { toggleModal(); return;}
+                        if (fillStatus === "filled") { toggleModal(); return;}
                         if (fillStatus !== "unfilled") return;
                         await fillUp();
                     }}><FillStatus status={fillStatus} /></Component.FillAllButton>

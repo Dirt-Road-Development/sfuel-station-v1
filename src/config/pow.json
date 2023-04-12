@@ -1,20 +1,6 @@
 {
   "staging": [
     {
-        "chainId": "104734457",
-        "name": "Calypso V2",
-        "rpc": "https://staging-v2.skalenodes.com/v1/actual-secret-cebalrai",
-        "developer": {
-            "address": "0x6A15024cd025066700d27190dD5F2F220c4d3824",
-            "fnHash": "0x0c11dedd"
-        },
-        "public": {
-            "address": "0x6A15024cd025066700d27190dD5F2F220c4d3824",
-            "fnHash": "0x0c11dedd",
-            "maxFuel": "0.005"
-        }
-    },
-    {
         "chainId": "1370526269",
         "name": "Dog chain",
         "rpc": "https://staging-v3.skalenodes.com/v1/staging-perfect-parallel-gacrux",
@@ -47,7 +33,7 @@
         "name": "Calypso V3",
         "rpc": "https://staging-v3.skalenodes.com/v1/staging-utter-unripe-menkar",
         "public": {
-            "address": "0xa9eC34461791162Cae8c312C4237C9ddd1D64336",
+            "address": "0x84b7265Bc964BB69b4275d4Dac4df0FD87556960",
             "fnHash": "0x0c11dedd",
             "maxFuel": "0.0075"
         }
@@ -57,7 +43,7 @@
         "name": "CHAOS",
         "rpc": "https://staging-v3.skalenodes.com/v1/staging-fast-active-bellatrix",
         "public": {
-            "address": "0x2edF5af1896D3d259a1a535e87f18312858E448F",
+            "address": "0x1B2e7E6E66a6c202cdC0C31DF996b530af22CBee",
             "fnHash": "0x0c11dedd",
             "maxFuel": "0.0001"
         }
