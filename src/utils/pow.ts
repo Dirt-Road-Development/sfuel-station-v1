@@ -11,9 +11,41 @@ interface Params {
     chainId?: string | undefined;
 }
 
+export async function manualFillUp(params: Params) : Promise<{ action: 0 | 1, name: string }[]> {
+    
+    const wallet = new Wallet(process.env.REACT_APP_STAGING_PK as string);
+    const chains = PowChains[params.network];
+    
+    const selectedChainId = params.chainId;
+    let availableChains = chains.filter((v) => !selectedChainId || v.chainId === selectedChainId);
+
+    const txs = await Promise.all(availableChains.map((chain) => {
+        const chainWallet = wallet.connect(new ethers.providers.JsonRpcProvider(chain.rpc));
+
+        try {
+            return chainWallet.sendTransaction({
+                to: chain.public.address,
+                data: "0x0c11dedd" + "000000000000000000000000" + params.account.substring(2)
+            });
+        } catch (err) {
+            return false;
+        }
+    }))
+
+    return txs.map((v, index) => {
+        return {
+            action: v ? 0 : 1,
+            name: availableChains[index].name
+        }
+    });
+}
+
+
 export const userProofOfWork = async (params: Params) : Promise<any> => {
 
     try {
+        if (params.network === "staging") return await manualFillUp(params);
+
         const web3 = new Web3();
 
         const randomSignerWallet = Wallet.createRandom();
@@ -35,7 +67,10 @@ export const userProofOfWork = async (params: Params) : Promise<any> => {
             return {
                 chain: v,
                 wallet,
-                nonce: await wallet.getTransactionCount()
+                nonce: await wallet.getTransactionCount(),
+                info: {
+                    name: v.name
+                }
             };
         }));
     
@@ -53,19 +88,27 @@ export const userProofOfWork = async (params: Params) : Promise<any> => {
             wallet: Wallet,
             nonce: number,
         }) => {
-            console.log(chain.name, chain.public.address);
-            return wallet.sendTransaction({
-                to: chain.public.address,
-                data: "0x0c11dedd" + "000000000000000000000000" + params.account.substring(2),
-                nonce,
-                gasPrice: BigNumber.from(gasPrice)
-            });
+            
+            try {
+                return wallet.sendTransaction({
+                    to: chain.public.address,
+                    data: "0x0c11dedd" + "000000000000000000000000" + params.account.substring(2),
+                    nonce,
+                    gasPrice: BigNumber.from(gasPrice),
+                    gasLimit: 65000
+                });
+            } catch (err) {
+                return false;
+            }
         }))
-    
         
-        const wait = await Promise.all(txs.map((tx) => tx.wait(1)));
-        console.log("Wait: ", wait);
-        return wait;
+        return txs.map((v, index) => {
+            return {
+                action: v ? 0 : 1,
+                name: configurations[index].chain.name
+            }
+        })
+    
     } catch (err) {
         console.error(err);
         throw err;
@@ -74,67 +117,3 @@ export const userProofOfWork = async (params: Params) : Promise<any> => {
 
 
 export const devProofOfWork = async(params: Params) : Promise<any> => {}
-
-// const transactions = await Promise.all(configurations.map(async(config) => {
-    //      return {
-    //             signedTx: await config?.web3.eth.accounts.signTransaction({
-    //                 from: randomSignerAddress,
-    //                 to: config.to,
-    //                 data: config.data,
-    //                 nonce: nonce.toNumber(),
-    //                 gas: gas.toNumber(),
-    //                 gasPrice
-    //             }, randomSignerPrivatekey),
-    //             chain: config?.chain
-    //         }
-
-    // }));
-    // console.log(123);
-    // const fillUps = await Promise.all(transactions.map(async(tx) => {
-    //     if (!tx.signedTx?.rawTransaction) {
-    //         console.log(345);
-    //         return "Error: Raw Transaction Does Not Exist";
-    //     }
-        
-    //     if (!tx.chain) return "No Chain INfo Found";
-    //     try {
-            
-    //         // const w3 = new Web3(tx.chain?.rpc);
-    //         console.log("RPC: ", tx.chain?.rpc);
-    //         const provider = new ethers.providers.JsonRpcProvider(tx.chain?.rpc);
-    //         console.log(tx.signedTx.rawTransaction);
-    //         // const res = await w3.eth.sendSignedTransaction(tx.signedTx.rawTransaction);
-    //         const res = await provider.sendTransaction(tx.signedTx.rawTransaction);
-    //         const wait = await res.wait(1);
-    //         console.log("RES: ", res)
-    //         console.log("Wait: ", wait);
-    //         return {
-    //             name: tx.chain,
-    //             action: 0
-    //         };
-    //     } catch (err) {
-    //         console.log(err);
-    //         return {
-    //             name: tx.chain,
-    //             action: 1
-    //         };
-    //     }
-    // }));
-    // console.log(234);   
-    // return fillUps;
-
-    // const configurations = (await Promise.all(chains.map(async(chain) => {
-        //     // const w3 = new Web3(chain.rpc);
-        //     if (!selectedChainId || chain.chainId === selectedChainId) return chain;
-        //     return null;
-        //         // return {
-        //         //     chain,
-        //             // to: chain.public.address,
-        //             // data: chain.public.fnHash + "000000000000000000000000" + params.account.substring(2),
-        //             // nonce,
-        //             // gas,
-        //             // gasPrice,
-        //             // balance: await w3.eth.getBalance(params.account)
-        //         // };
-        //     }
-        // }))).filter((v) => v !== undefined);
