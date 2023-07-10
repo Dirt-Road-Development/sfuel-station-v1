@@ -23,6 +23,12 @@
       "name": "calypso",
       "nativeCurrency": "SFUEL",
       "blockExplorerUrls": ["https://staging-utter-unripe-menkar.explorer.staging-v3.skalenodes.com/"]
+    },
+    "503129905": {
+      "urls": ["https://staging-v3.skalenodes.com/v1/staging-faint-slimy-achird"],
+      "name": "nebula",
+      "nativeCurrency": "SFUEL",
+      "blockExplorerUrls": ["https://staging-faint-slimy-achird.explorer.staging-v3.skalenodes.com/"]
     }
   },
   "mainnet": {
@@ -61,6 +67,12 @@
       "name": "HUMAN Protocol Chain",
       "nativeCurrency": "SFUEL",
       "blockExplorerUrls": ["https://wan-red-ain.explorer.mainnet.skalenodes.com/"]
+    },
+    "1482601649": {
+      "urls": ["https://mainnet.skalenodes.com/v1/green-giddy-denebola"],
+      "name": "Nebula Gaming Hub",
+      "nativeCurrency": "SFUEL",
+      "blockExplorerUrls": ["https://green-giddy-denebola.explorer.mainnet.skalenodes.com"]
     }
   }
 }
