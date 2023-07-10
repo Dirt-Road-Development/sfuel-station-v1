@@ -75,5 +75,19 @@
             "light": "#6309FF",
             "dark": "#6309FF",
             "logo": "chaos.svg"
+        },
+        {
+            "name": "Nebula Gaming Hub",
+            "url": "https://nebulachain.io",
+            "dark": "rgba(7, 7, 7, 0.9)",
+            "light": "rgba(7, 7, 7, 0.9)",
+            "logo": "nebula.png"
+        },
+        {
+            "name": "VoxelVerse",
+            "url": "https://voxelverse.ca",
+            "dark": "rgba(7, 7, 7, 0.9)",
+            "light": "rgba(7, 7, 7, 0.9)",
+            "logo": "voxelverse.png"
         }
     ]

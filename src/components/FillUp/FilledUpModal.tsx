@@ -11,6 +11,11 @@ import NFTradeLogo from "../../assets/nftradeLogo.svg";
 import RubyLogo from "../../assets/rubyExchangeLogo.png";
 import RazorLogo from "../../assets/razorNetworkLogo.svg";
 import SkaleLogo from "../../assets/skale_logo_blue.svg";
+import HumanProtocolLogo from "../../assets/human-logo.svg";
+import NebulaLogo from "../../assets/nebula.png";
+import VoxelVerseLogo from "../../assets/voxel_verse.png";
+import ChaosLogo from "../../assets/chaos.svg";
+
 import {useContext} from "react";
 import {ThemeContext} from "../../context/ThemeContext";
 
@@ -23,7 +28,11 @@ const images: string[] = [
     NFTradeLogo,
     RazorLogo,
     RubyLogo,
-    SkaleLogo
+    SkaleLogo,
+    HumanProtocolLogo,
+    ChaosLogo,
+    NebulaLogo,
+    VoxelVerseLogo
 ];
 
 const Container = styled.div`
@@ -67,7 +76,7 @@ const NetworkIntroductionSection = styled.div`
 
 const Project = styled.a<{color: string}>`
     height: 125px;
-    margin: 0 10px;
+    margin: 5px 10px;
     width: 22%;
     display: flex;
     flex-direction: column;
