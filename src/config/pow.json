@@ -51,7 +51,7 @@
     {
         "chainId": "503129905",
         "name": "Nebula V3",
-        "rpc": "https://mainnet.skalenodes.com/v1/green-giddy-denebola",
+        "rpc": "https://staging-v3.skalenodes.com/v1/staging-faint-slimy-achird",
         "public": {
             "address": "0xfd56A3456fbAB0fc013213edCc830B9d32403C8B",
             "fnHash": "0x0c11dedd",
